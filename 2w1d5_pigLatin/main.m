@@ -7,11 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "InputCollector.h"
+#import "NSString+PigLatin.h"
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        
+        BOOL loop = YES;
+        
+        NSLog(@"Let's do pig latin!");
+        
+        while (loop)
+        {
+            NSString *input = [[[InputCollector alloc]init]userInput:@"Please type in a sentence"];
+            NSLog(@"Your sentence is: %@", input);
+            NSString *pigLatin = [input stringByPigLatinization];
+            NSLog(@"%@", pigLatin);
+        }
+        
     }
     return 0;
 }
